@@ -517,12 +517,13 @@ img { display: block; max-width: 100%; }
   max-width: var(--max-w);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(40px, 6vw, 100px);
+  grid-template-columns: 200px 1fr;
+  gap: clamp(32px, 4vw, 64px);
   align-items: center;
 }
 
 .founder-photo-wrap {
+  width: 200px;
   aspect-ratio: 3/4;
   overflow: hidden;
   background: var(--bg-2);
@@ -799,7 +800,7 @@ img { display: block; max-width: 100%; }
   .division-item { grid-template-columns: 48px 1fr; }
   .division-link-col { grid-column: 2; padding-top: 0; }
   .founder-inner { grid-template-columns: 1fr; }
-  .founder-photo-wrap { max-height: 360px; aspect-ratio: unset; }
+  .founder-photo-wrap { width: 160px; }
   .contact-inner { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
 }
