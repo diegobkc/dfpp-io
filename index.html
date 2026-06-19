@@ -5,19 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DFPP — Building Systems That Matter</title>
   <meta name="description" content="DFPP builds workflow automation, financial systems, and community infrastructure for businesses and builders ready to scale." />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="DFPP — Building Systems That Matter" />
   <meta property="og:description" content="Three divisions. One mission. Workflow automation, financial intelligence, and community infrastructure." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dfpp.io" />
-  <meta property="og:image" content="https://dfpp.io/public/og-image.png" />
-
-  <!-- Fonts: Cormorant Garamond (display) + Outfit (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="src/style.css" />
 </head>
 <body>
@@ -27,9 +18,7 @@
     <a href="/" class="wordmark">DFPP</a>
 
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
 
     <div class="nav-links" id="nav-links">
@@ -45,127 +34,116 @@
 
     <!-- ── Hero ── -->
     <section class="hero">
-      <div class="hero-glow"></div>
-
       <div class="hero-inner">
-        <p class="eyebrow hero-eyebrow">DFPP &middot; Est. 2022</p>
+        <div class="hero-left">
+          <div class="hero-eyebrow">
+            <span class="eyebrow">DFPP · Est. 2022</span>
+          </div>
+          <h1 class="hero-heading">
+            Building<br>
+            systems<br>
+            that <em>move</em><br>
+            markets.
+          </h1>
+          <p class="hero-sub">
+            Three divisions — agency automation, financial intelligence,
+            and community infrastructure — built for the businesses
+            and builders of tomorrow.
+          </p>
+          <a href="#divisions" class="hero-cta">
+            Explore Divisions
+            <svg class="cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
 
-        <h1 class="hero-heading">
-          <span class="hero-line hl-1">Building the</span>
-          <span class="hero-line hl-2">systems that</span>
-          <span class="hero-line hl-3">move markets.</span>
-        </h1>
-
-        <p class="hero-sub">
-          Three divisions — agency automation, financial intelligence,
-          and community infrastructure — built for the businesses
-          and builders of tomorrow.
-        </p>
-
-        <a href="#divisions" class="hero-cta">
-          Explore Divisions
-          <svg class="cta-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 5v14M5 12l7 7 7-7"/>
-          </svg>
-        </a>
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"
+            alt="Modern architecture — building systems that move markets"
+            class="hero-img"
+          />
+        </div>
       </div>
 
-      <div class="scroll-indicator">
-        <div class="scroll-bar"></div>
-      </div>
-    </section>
-
-    <!-- ── Stats ── -->
-    <section class="stats">
-      <div class="stats-inner">
-        <!-- EDIT: Update values as DFPP grows -->
-        <div class="stat">
-          <span class="stat-num">03</span>
-          <span class="stat-label">Operating Divisions</span>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <span class="stat-num">2022</span>
-          <span class="stat-label">Year Founded</span>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <span class="stat-num">03</span>
-          <span class="stat-label">Distinct Markets</span>
-        </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <span class="stat-num">&#x221E;</span>
-          <span class="stat-label">Scale by Design</span>
-        </div>
+      <div class="hero-bottom">
+        <span class="hero-meta">Kansas City, MO · hello@dfpp.io</span>
+        <span class="hero-meta">Three Divisions · Active 2026</span>
       </div>
     </section>
 
     <!-- ── Divisions ── -->
     <section class="divisions" id="divisions">
       <div class="divisions-header fade-up">
-        <p class="eyebrow">Our Divisions</p>
-        <h2 class="section-heading">Three platforms.<br>One unified mission.</h2>
+        <div>
+          <p class="eyebrow">Our Divisions</p>
+          <h2 class="section-heading">Three platforms.<br>One mission.</h2>
+        </div>
       </div>
 
-      <div class="divisions-inner">
+      <ul class="divisions-list">
 
-        <div class="card fade-up" data-division="01" style="--delay: 0ms">
-          <div class="card-top">
-            <span class="card-label">Division 01</span>
-            <span class="card-status status-live">Live</span>
+        <li class="division-item fade-up" style="--delay: 0ms">
+          <span class="division-num">01</span>
+          <div class="division-body">
+            <span class="division-status">Live</span>
+            <h3 class="division-name">DFPP Agency</h3>
+            <p class="division-desc">Workflow automation and purpose-built software for service businesses. We eliminate phone tag, manual follow-ups, and missed bookings — so your team can focus on the work.</p>
+            <div class="division-tags">
+              <span class="product-tag">GarageLink</span>
+              <span class="product-tag">PawBook Connect</span>
+              <span class="product-tag">Event Booking Connect</span>
+              <span class="product-tag">AgentInk</span>
+              <span class="product-tag">Validate First</span>
+            </div>
           </div>
-          <h3 class="card-name">DFPP Agency</h3>
-          <p class="card-desc">Workflow automation and purpose-built software for service businesses. We eliminate phone tag, manual follow-ups, and missed bookings — so your team can focus on the work.</p>
-          <div class="card-products">
-            <span class="product-tag">GarageLink</span>
-            <span class="product-tag">PawBook Connect</span>
-            <span class="product-tag">Event Booking Connect</span>
-            <span class="product-tag">AgentInk</span>
-            <span class="product-tag">Validate First</span>
+          <div class="division-link-col">
+            <a href="https://dfppagency.com" target="_blank" rel="noopener" class="card-link">
+              dfppagency.com
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
           </div>
-          <a href="https://dfppagency.com" target="_blank" rel="noopener" class="card-link">
-            dfppagency.com
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-        </div>
+        </li>
 
-        <div class="card fade-up" data-division="02" style="--delay: 120ms">
-          <div class="card-top">
-            <span class="card-label">Division 02</span>
-            <span class="card-status status-live">Live</span>
+        <li class="division-item fade-up" style="--delay: 80ms">
+          <span class="division-num">02</span>
+          <div class="division-body">
+            <span class="division-status">Live</span>
+            <h3 class="division-name">DFPP Capital</h3>
+            <p class="division-desc">Algorithmic trading systems and financial automation. We build the infrastructure that makes disciplined, data-driven investing accessible without manual intervention.</p>
+            <div class="division-tags">
+              <span class="product-tag">AMIS Trading System</span>
+              <span class="product-tag coming">Inflation Shield ↗</span>
+            </div>
           </div>
-          <h3 class="card-name">DFPP Capital</h3>
-          <p class="card-desc">Algorithmic trading systems and financial automation. We build the infrastructure that makes disciplined, data-driven investing accessible without manual intervention.</p>
-          <div class="card-products">
-            <span class="product-tag">AMIS Trading System</span>
-            <span class="product-tag coming">Inflation Shield</span>
+          <div class="division-link-col">
+            <a href="https://dfppcapital.com" target="_blank" rel="noopener" class="card-link">
+              dfppcapital.com
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </a>
           </div>
-          <a href="https://dfppcapital.com" target="_blank" rel="noopener" class="card-link">
-            dfppcapital.com
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-        </div>
+        </li>
 
-        <div class="card fade-up" data-division="03" style="--delay: 240ms">
-          <div class="card-top">
-            <span class="card-label">Division 03</span>
-            <span class="card-status status-live">Live</span>
+        <li class="division-item fade-up" style="--delay: 160ms">
+          <span class="division-num">03</span>
+          <div class="division-body">
+            <span class="division-status">Live</span>
+            <h3 class="division-name">DFPP Collective</h3>
+            <p class="division-desc">A community for displaced workers and independent builders. A place to build alongside DFPP, find collaborators, and do the impossible.</p>
+            <div class="division-tags">
+              <span class="product-tag">The Assembly</span>
+            </div>
           </div>
-          <h3 class="card-name">DFPP Collective</h3>
-          <p class="card-desc">A community for displaced workers and independent builders. A place to build alongside DFPP, find collaborators, and do the impossible.</p>
-          <div class="card-products">
-            <span class="product-tag">The Assembly</span>
+          <div class="division-link-col">
+            <a href="https://collective.dfpp.io" target="_blank" rel="noopener noreferrer" class="card-link">
+              collective.dfpp.io
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
           </div>
-          <a href="https://collective.dfpp.io" target="_blank" rel="noopener noreferrer" class="card-link">
-            collective.dfpp.io
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M7 17L17 7M7 7h10v10"/>
-            </svg>
-          </a>
-        </div>
+        </li>
 
-      </div>
+      </ul>
     </section>
 
     <!-- ── Approach ── -->
@@ -182,14 +160,12 @@
             <h3 class="step-title">Identify</h3>
             <p class="step-desc">We map where time and capital are leaking — in workflows, trading systems, or community infrastructure. No assumptions. Just clarity on the gap.</p>
           </div>
-
-          <div class="step fade-up" style="--delay: 120ms">
+          <div class="step fade-up" style="--delay: 100ms">
             <span class="step-num">02</span>
             <h3 class="step-title">Architect</h3>
             <p class="step-desc">We design systems purpose-built for the problem. Not off-the-shelf. Not duct-taped integrations. Clean infrastructure that does exactly what it needs to do.</p>
           </div>
-
-          <div class="step fade-up" style="--delay: 240ms">
+          <div class="step fade-up" style="--delay: 200ms">
             <span class="step-num">03</span>
             <h3 class="step-title">Deploy</h3>
             <p class="step-desc">We ship, then evolve. Every system we build becomes more effective as it operates — learning, adapting, compounding value over time.</p>
@@ -201,13 +177,8 @@
     <!-- ── Founder ── -->
     <section class="founder" id="about">
       <div class="founder-inner">
-
         <div class="founder-photo-col fade-up">
           <div class="founder-photo-wrap" id="founder-photo-wrap">
-            <!--
-              Add founder photo: place image at public/founder.jpg
-              Recommended: 600×800px, high contrast, dark or neutral background
-            -->
             <img
               src="public/brian-jones.jpg"
               alt="Brian Jones, Founder of DFPP"
@@ -217,24 +188,22 @@
           </div>
         </div>
 
-        <div class="founder-content fade-up" style="--delay: 160ms">
+        <div class="founder-content fade-up" style="--delay: 120ms">
           <p class="eyebrow">Founder</p>
           <blockquote class="founder-quote">
-            &ldquo;I built DFPP because I kept watching capable people and great small businesses lose ground to bad systems &mdash; not bad work ethic. The tools exist to fix that. We build them.&rdquo;
+            I built DFPP because I kept watching capable people and great small businesses lose ground to bad systems — not bad work ethic. The tools exist to fix that. We build them.
           </blockquote>
           <div class="founder-meta">
             <p class="founder-name">Brian Jones</p>
             <p class="founder-title">Founder &amp; CEO, DFPP LLC</p>
           </div>
         </div>
-
       </div>
     </section>
 
     <!-- ── Contact ── -->
     <section class="contact" id="contact">
       <div class="contact-inner">
-
         <div class="contact-left fade-up">
           <p class="eyebrow">Work With Us</p>
           <h2 class="contact-heading">Start a<br>conversation.</h2>
@@ -245,7 +214,7 @@
           </div>
         </div>
 
-        <div class="contact-right fade-up" style="--delay: 100ms">
+        <div class="contact-right fade-up" style="--delay: 80ms">
           <form
             id="contact-form"
             name="contact"
@@ -255,9 +224,7 @@
             class="contact-form"
           >
             <input type="hidden" name="form-name" value="contact" />
-            <p class="hidden-field">
-              <label>Leave blank: <input name="bot-field" /></label>
-            </p>
+            <p class="hidden-field"><label>Leave blank: <input name="bot-field" /></label></p>
 
             <div class="form-row">
               <div class="form-group">
@@ -284,7 +251,7 @@
 
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell us what you're working on or what you'd like to know..."></textarea>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us what you're working on..."></textarea>
             </div>
 
             <button type="submit" class="form-btn">Send Message</button>
@@ -295,7 +262,6 @@
             <p class="success-sub">We'll be in touch within one business day.</p>
           </div>
         </div>
-
       </div>
     </section>
 
