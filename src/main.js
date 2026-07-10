@@ -3,9 +3,11 @@ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)
 
 // ── Nav: glass on scroll ──
 const nav = document.getElementById('nav');
-const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 24);
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
+if (nav) {
+  const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 24);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
 
 // ── Mobile nav ──
 const navToggle = document.getElementById('nav-toggle');
@@ -15,12 +17,14 @@ if (navToggle && navLinks) {
     const open = navLinks.classList.toggle('is-open');
     navToggle.classList.toggle('is-open', open);
     navToggle.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
   });
   navLinks.querySelectorAll('a').forEach((a) =>
     a.addEventListener('click', () => {
       navLinks.classList.remove('is-open');
       navToggle.classList.remove('is-open');
       navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     })
   );
 }
