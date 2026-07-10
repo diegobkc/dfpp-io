@@ -1,80 +1,103 @@
-// ── Hero load reveal ──────────────────────────
-// Add .loaded to body → triggers staggered CSS animations
-document.addEventListener('DOMContentLoaded', () => {
-  // Small rAF to ensure styles are applied before animation fires
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      document.body.classList.add('loaded');
-    });
-  });
-});
+// ── Helpers ──
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ── Nav: blur on scroll ───────────────────────
+// ── Nav: glass on scroll ──
 const nav = document.getElementById('nav');
+const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 24);
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
-if (nav) {
-  const onScroll = () => {
-    nav.classList.toggle('scrolled', window.scrollY > 48);
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll(); // run on init in case page loads mid-scroll
-}
-
-// ── Mobile hamburger menu ─────────────────────
+// ── Mobile nav ──
 const navToggle = document.getElementById('nav-toggle');
-const navLinks  = document.getElementById('nav-links');
-
+const navLinks = document.getElementById('nav-links');
 if (navToggle && navLinks) {
   navToggle.addEventListener('click', () => {
-    const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', String(!isOpen));
-    navLinks.classList.toggle('open', !isOpen);
-    document.body.style.overflow = !isOpen ? 'hidden' : '';
+    const open = navLinks.classList.toggle('is-open');
+    navToggle.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
   });
-
-  // Close menu when a nav link is clicked
-  navLinks.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('click', () => {
+  navLinks.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('is-open');
+      navToggle.classList.remove('is-open');
       navToggle.setAttribute('aria-expanded', 'false');
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
+    })
+  );
 }
 
-// ── Scroll reveal ─────────────────────────────
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  },
-  { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-);
+// ── Scroll reveals ──
+if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+  const singles = [...document.querySelectorAll('[data-reveal]')];
+  const groups = [...document.querySelectorAll('[data-reveal-group]')];
+  const groupChildren = groups.flatMap((g) => [...g.children]);
 
-document.querySelectorAll('.fade-up').forEach((el) => revealObserver.observe(el));
+  [...singles, ...groupChildren].forEach((el) => el.classList.add('is-hidden'));
 
-// ── Current year in footer ────────────────────
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (el.hasAttribute('data-reveal-group')) {
+          [...el.children].forEach((child, i) =>
+            setTimeout(() => child.classList.remove('is-hidden'), i * 90)
+          );
+        } else {
+          el.classList.remove('is-hidden');
+        }
+        io.unobserve(el);
+      });
+    },
+    { threshold: 0.15 }
+  );
 
-// ── Contact form — Netlify AJAX submission ────
-const contactForm    = document.getElementById('contact-form');
-const formSuccess    = document.getElementById('form-success');
-const formBtn        = contactForm?.querySelector('.form-btn');
+  singles.forEach((el) => io.observe(el));
+  groups.forEach((el) => io.observe(el));
+}
 
+// ── Animated counters ──
+const counters = [...document.querySelectorAll('[data-count]')];
+const renderCount = (el, value) => {
+  el.textContent = el.hasAttribute('data-nogroup')
+    ? String(value)
+    : value.toLocaleString('en-US');
+};
+if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+  counters.forEach((el) => renderCount(el, Number(el.dataset.count)));
+} else {
+  const cio = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.count);
+        const t0 = performance.now();
+        const dur = 1200;
+        const tick = (t) => {
+          const p = Math.min((t - t0) / dur, 1);
+          renderCount(el, Math.round(target * (1 - Math.pow(1 - p, 3))));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        cio.unobserve(el);
+      });
+    },
+    { threshold: 0.4 }
+  );
+  counters.forEach((el) => cio.observe(el));
+}
+
+// ── Contact form (Netlify AJAX) ──
+const contactForm = document.getElementById('contact-form');
+const formSuccess = document.getElementById('form-success');
 if (contactForm && formSuccess) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
+    const formBtn = contactForm.querySelector('.form-btn');
     if (formBtn) {
       formBtn.textContent = 'Sending…';
       formBtn.disabled = true;
     }
-
     fetch('/__forms.html', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -82,11 +105,19 @@ if (contactForm && formSuccess) {
     })
       .then(() => {
         contactForm.classList.add('hidden');
+        contactForm.style.display = 'none';
         formSuccess.classList.remove('hidden');
       })
       .catch(() => {
-        // Fallback: native form submission
-        contactForm.submit();
+        if (formBtn) {
+          formBtn.textContent = 'Send message';
+          formBtn.disabled = false;
+        }
+        alert('Something went wrong — email us directly at hello@dfpp.io');
       });
   });
 }
+
+// ── Footer year ──
+const yearEl = document.getElementById('year');
+if (yearEl) yearEl.textContent = String(new Date().getFullYear());
