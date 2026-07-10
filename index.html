@@ -3,197 +3,180 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DFPP — Building Systems That Matter</title>
-  <meta name="description" content="DFPP builds workflow automation, financial systems, and community infrastructure for businesses and builders ready to scale." />
-  <meta property="og:title" content="DFPP — Building Systems That Matter" />
-  <meta property="og:description" content="Three divisions. One mission. Workflow automation, financial intelligence, and community infrastructure." />
+  <title>DFPP — The Operating System for What's Next</title>
+  <meta name="description" content="DFPP builds the machinery behind modern business — workflow automation, financial intelligence, and community infrastructure. Three divisions. One system." />
+  <meta property="og:title" content="DFPP — The Operating System for What's Next" />
+  <meta property="og:description" content="Three divisions. One system. Workflow automation, financial intelligence, and community infrastructure." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://dfpp.io" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="src/style.css" />
 </head>
 <body>
 
-  <!-- ── Navigation ── -->
+  <!-- Nav -->
   <nav class="nav" id="nav">
     <a href="/" class="wordmark">DFPP</a>
-
     <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-
     <div class="nav-links" id="nav-links">
       <a href="#divisions" class="nav-link">Divisions</a>
       <a href="#approach" class="nav-link">Approach</a>
       <a href="https://journal.dfpp.io" target="_blank" rel="noopener" class="nav-link">Journal</a>
-      <a href="https://dfppagency.com" target="_blank" rel="noopener" class="nav-link">Agency</a>
       <a href="#contact" class="nav-link nav-link--cta">Contact</a>
     </div>
   </nav>
 
   <main>
 
-    <!-- ── Hero ── -->
+    <!-- Hero -->
     <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="hero-grid"></div>
+      </div>
+
       <div class="hero-inner">
         <div class="hero-left">
-          <div class="hero-eyebrow">
-            <span class="eyebrow">DFPP · Est. 2022</span>
+          <span class="chip"><span class="pulse-dot"></span>Three divisions active · Est. 2022</span>
+          <h1 class="hero-heading">The operating<br>system for<br><span class="grad-text">what's next.</span></h1>
+          <p class="hero-sub">DFPP builds the machinery behind modern business — workflow automation, financial intelligence, and community infrastructure — from Kansas City, for everywhere.</p>
+          <div class="hero-ctas">
+            <a href="#divisions" class="btn btn--solid">Explore divisions</a>
+            <a href="#contact" class="btn btn--ghost">Start a conversation</a>
           </div>
-          <h1 class="hero-heading">
-            Building<br>
-            systems<br>
-            that <em>move</em><br>
-            markets.
-          </h1>
-          <p class="hero-sub">
-            Three divisions — agency automation, financial intelligence,
-            and community infrastructure — built for the businesses
-            and builders of tomorrow.
-          </p>
-          <a href="#divisions" class="hero-cta">
-            Explore Divisions
-            <svg class="cta-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
+        </div>
+
+        <div class="hero-right" aria-hidden="false">
+          <a href="#agency" class="float-card float-card--1">
+            <span class="float-num" style="color:var(--gold)">01</span>
+            <span class="float-name">Agency</span>
+            <span class="float-desc">Automation for service businesses</span>
+          </a>
+          <a href="#capital" class="float-card float-card--2">
+            <span class="float-num" style="color:var(--champagne)">02</span>
+            <span class="float-name">Capital</span>
+            <span class="float-desc">Intelligent financial systems</span>
+          </a>
+          <a href="#collective" class="float-card float-card--3">
+            <span class="float-num" style="color:var(--bronze)">03</span>
+            <span class="float-name">Collective</span>
+            <span class="float-desc">The Assembly — builders, together</span>
           </a>
         </div>
-
-        <div class="hero-image">
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80"
-            alt="Modern architecture — building systems that move markets"
-            class="hero-img"
-          />
-        </div>
-      </div>
-
-      <div class="hero-bottom">
-        <span class="hero-meta">Kansas City, MO · hello@dfpp.io</span>
-        <span class="hero-meta">Three Divisions · Active 2026</span>
       </div>
     </section>
 
-    <!-- ── Divisions ── -->
+    <!-- Proof bar -->
+    <section class="proof" data-reveal>
+      <div class="proof-inner">
+        <div class="proof-stat"><span class="proof-num" data-count="2022" data-nogroup>0</span><span class="proof-label">Founded</span></div>
+        <div class="proof-stat"><span class="proof-num" data-count="3">0</span><span class="proof-label">Divisions</span></div>
+        <div class="proof-stat"><span class="proof-num" data-count="9">0</span><span class="proof-label">Products &amp; platforms</span></div>
+        <div class="proof-stat"><span class="proof-num proof-num--text">KC, MO</span><span class="proof-label">Headquarters</span></div>
+      </div>
+    </section>
+
+    <!-- Divisions -->
     <section class="divisions" id="divisions">
-      <div class="divisions-header fade-up">
-        <div>
-          <p class="eyebrow">Our Divisions</p>
-          <h2 class="section-heading">Three platforms.<br>One mission.</h2>
-        </div>
+      <div class="divisions-header" data-reveal>
+        <p class="eyebrow">Our divisions</p>
+        <h2 class="section-heading">Three forces.<br>One system.</h2>
       </div>
 
-      <ul class="divisions-list">
-
-        <li class="division-item fade-up" style="--delay: 0ms">
-          <span class="division-num">01</span>
-          <div class="division-body">
-            <span class="division-status">Live</span>
-            <h3 class="division-name">DFPP Agency</h3>
-            <p class="division-desc">Workflow automation and purpose-built software for service businesses. We eliminate phone tag, manual follow-ups, and missed bookings — so your team can focus on the work.</p>
-            <div class="division-tags">
-              <span class="product-tag">GarageLink</span>
-              <span class="product-tag">PawBook Connect</span>
-              <span class="product-tag">Event Booking Connect</span>
-              <span class="product-tag">AgentInk</span>
-              <span class="product-tag">Validate First</span>
+      <!-- 01 Agency -->
+      <article class="chapter chapter--agency" id="agency">
+        <div class="chapter-inner">
+          <header class="chapter-head" data-reveal>
+            <span class="chapter-num">01</span>
+            <div>
+              <span class="chip chip--live"><span class="pulse-dot"></span>Live</span>
+              <h3 class="chapter-name">DFPP Agency</h3>
+              <p class="chapter-mission">Workflow automation and purpose-built software for service businesses. We eliminate phone tag, manual follow-ups, and missed bookings — so your team can focus on the work.</p>
             </div>
+          </header>
+          <div class="product-grid" data-reveal-group>
+            <div class="product-card"><h4>GarageLink</h4><p>Scheduling and customer communication for independent auto shops.</p></div>
+            <div class="product-card"><h4>PawBook Connect</h4><p>Booking and client management for pet-care businesses.</p></div>
+            <div class="product-card"><h4>Event Booking Connect</h4><p>Inquiry-to-booking pipelines for venues and event pros.</p></div>
+            <div class="product-card"><h4>AgentInk</h4><p>Content and publishing automation for independent agents.</p></div>
+            <div class="product-card"><h4>Validate First</h4><p>Test demand before you build.</p></div>
           </div>
-          <div class="division-link-col">
-            <a href="https://dfppagency.com" target="_blank" rel="noopener" class="card-link">
-              dfppagency.com
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-            </a>
-          </div>
-        </li>
+          <a href="https://dfppagency.com" target="_blank" rel="noopener" class="chapter-cta" data-reveal>Visit dfppagency.com <span class="cta-arrow">→</span></a>
+        </div>
+      </article>
 
-        <li class="division-item fade-up" style="--delay: 80ms">
-          <span class="division-num">02</span>
-          <div class="division-body">
-            <span class="division-status">Live</span>
-            <h3 class="division-name">DFPP Capital</h3>
-            <p class="division-desc">Algorithmic trading systems and financial automation. We build the infrastructure that makes disciplined, data-driven investing accessible without manual intervention.</p>
-            <div class="division-tags">
-              <span class="product-tag">AMIS Trading System</span>
-              <span class="product-tag coming">Inflation Shield ↗</span>
+      <!-- 02 Capital -->
+      <article class="chapter chapter--capital" id="capital">
+        <div class="chapter-inner">
+          <header class="chapter-head" data-reveal>
+            <span class="chapter-num">02</span>
+            <div>
+              <span class="chip chip--live"><span class="pulse-dot"></span>Live</span>
+              <h3 class="chapter-name">DFPP Capital</h3>
+              <p class="chapter-mission">Intelligent financial systems. We build the infrastructure that makes disciplined, data-driven investing and financial operations run without manual intervention.</p>
             </div>
+          </header>
+          <div class="product-grid" data-reveal-group>
+            <div class="product-card"><h4>AMIS Trading System</h4><p>Automated multi-strategy trading infrastructure.</p></div>
+            <div class="product-card"><h4>Inflation Shield</h4><p>Systematic hedging against purchasing-power erosion.</p></div>
+            <div class="product-card"><h4>SmartInvoice</h4><p>Invoicing that runs itself.</p></div>
           </div>
-          <div class="division-link-col">
-            <a href="https://dfppcapital.com" target="_blank" rel="noopener" class="card-link">
-              dfppcapital.com
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-            </a>
-          </div>
-        </li>
+          <a href="https://dfppcapital.com" target="_blank" rel="noopener" class="chapter-cta" data-reveal>Visit dfppcapital.com <span class="cta-arrow">→</span></a>
+        </div>
+      </article>
 
-        <li class="division-item fade-up" style="--delay: 160ms">
-          <span class="division-num">03</span>
-          <div class="division-body">
-            <span class="division-status">Live</span>
-            <h3 class="division-name">DFPP Collective</h3>
-            <p class="division-desc">A community for displaced workers and independent builders. A place to build alongside DFPP, find collaborators, and do the impossible.</p>
-            <div class="division-tags">
-              <span class="product-tag">The Assembly</span>
+      <!-- 03 Collective -->
+      <article class="chapter chapter--collective" id="collective">
+        <div class="chapter-inner">
+          <header class="chapter-head" data-reveal>
+            <span class="chapter-num">03</span>
+            <div>
+              <span class="chip chip--live"><span class="pulse-dot"></span>Live</span>
+              <h3 class="chapter-name">DFPP Collective</h3>
+              <p class="chapter-tagline">"You didn't lose your value. You lost your employer."</p>
+              <p class="chapter-mission">A vetted collective of experienced builders — developers, strategists, operators — doing principled work together, with shared upside.</p>
             </div>
+          </header>
+          <div class="product-grid" data-reveal-group>
+            <div class="product-card product-card--wide"><h4>The Assembly</h4><p>The membership home of the Collective: vetted teams, real projects, shared equity.</p></div>
           </div>
-          <div class="division-link-col">
-            <a href="https://collective.dfpp.io" target="_blank" rel="noopener noreferrer" class="card-link">
-              collective.dfpp.io
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-            </a>
-          </div>
-        </li>
-
-      </ul>
+          <a href="https://collective.dfpp.io" target="_blank" rel="noopener" class="chapter-cta" data-reveal>Visit collective.dfpp.io <span class="cta-arrow">→</span></a>
+        </div>
+      </article>
     </section>
 
-    <!-- ── Approach ── -->
+    <!-- Approach -->
     <section class="approach" id="approach">
       <div class="approach-inner">
-        <div class="approach-header fade-up">
-          <p class="eyebrow">How We Build</p>
+        <div class="approach-header" data-reveal>
+          <p class="eyebrow">How we build</p>
           <h2 class="section-heading">Precision over speed.<br>Systems over shortcuts.</h2>
         </div>
-
-        <div class="approach-steps">
-          <div class="step fade-up" style="--delay: 0ms">
-            <span class="step-num">01</span>
-            <h3 class="step-title">Identify</h3>
-            <p class="step-desc">We map where time and capital are leaking — in workflows, trading systems, or community infrastructure. No assumptions. Just clarity on the gap.</p>
-          </div>
-          <div class="step fade-up" style="--delay: 100ms">
-            <span class="step-num">02</span>
-            <h3 class="step-title">Architect</h3>
-            <p class="step-desc">We design systems purpose-built for the problem. Not off-the-shelf. Not duct-taped integrations. Clean infrastructure that does exactly what it needs to do.</p>
-          </div>
-          <div class="step fade-up" style="--delay: 200ms">
-            <span class="step-num">03</span>
-            <h3 class="step-title">Deploy</h3>
-            <p class="step-desc">We ship, then evolve. Every system we build becomes more effective as it operates — learning, adapting, compounding value over time.</p>
-          </div>
+        <div class="approach-steps" data-reveal-group>
+          <div class="step"><span class="step-num">01</span><h3 class="step-title">Identify</h3><p class="step-desc">We map where time and capital are leaking — in workflows, trading systems, or community infrastructure. No assumptions. Just clarity on the gap.</p></div>
+          <div class="step"><span class="step-num">02</span><h3 class="step-title">Architect</h3><p class="step-desc">We design systems purpose-built for the problem. Not off-the-shelf. Not duct-taped integrations. Clean infrastructure that does exactly what it needs to do.</p></div>
+          <div class="step"><span class="step-num">03</span><h3 class="step-title">Deploy</h3><p class="step-desc">We ship, then evolve. Every system we build becomes more effective as it operates — learning, adapting, compounding value over time.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- ── Founder ── -->
+    <!-- Founder -->
     <section class="founder" id="about">
-      <div class="founder-inner">
-        <div class="founder-photo-col fade-up">
+      <div class="founder-inner" data-reveal>
+        <div class="founder-card">
           <div class="founder-photo-wrap" id="founder-photo-wrap">
-            <img
-              src="public/brian-jones.jpg"
-              alt="Brian Jones, Founder of DFPP"
-              class="founder-img"
-              onerror="document.getElementById('founder-photo-wrap').classList.add('photo-missing')"
-            />
+            <img src="public/brian-jones.jpg" alt="Brian Jones, Founder of DFPP" class="founder-img"
+                 onerror="document.getElementById('founder-photo-wrap').classList.add('photo-missing')" />
           </div>
-        </div>
-
-        <div class="founder-content fade-up" style="--delay: 120ms">
-          <p class="eyebrow">Founder</p>
-          <blockquote class="founder-quote">
-            I built DFPP because I kept watching capable people and great small businesses lose ground to bad systems — not bad work ethic. The tools exist to fix that. We build them.
-          </blockquote>
-          <div class="founder-meta">
+          <div class="founder-content">
+            <p class="eyebrow">Founder</p>
+            <blockquote class="founder-quote">I built DFPP because I kept watching capable people and great small businesses lose ground to bad systems — not bad work ethic. The tools exist to fix that. We build them.</blockquote>
             <p class="founder-name">Brian Jones</p>
             <p class="founder-title">Founder &amp; CEO, DFPP LLC</p>
           </div>
@@ -201,11 +184,11 @@
       </div>
     </section>
 
-    <!-- ── Contact ── -->
+    <!-- Contact — form block preserved verbatim from current site -->
     <section class="contact" id="contact">
       <div class="contact-inner">
-        <div class="contact-left fade-up">
-          <p class="eyebrow">Work With Us</p>
+        <div class="contact-left" data-reveal>
+          <p class="eyebrow">Work with us</p>
           <h2 class="contact-heading">Start a<br>conversation.</h2>
           <p class="contact-sub">Whether you're exploring a partnership, evaluating our technology, or looking to build alongside DFPP — we'd like to hear from you.</p>
           <div class="contact-direct">
@@ -213,19 +196,10 @@
             <a href="mailto:hello@dfpp.io" class="contact-direct-email">hello@dfpp.io</a>
           </div>
         </div>
-
-        <div class="contact-right fade-up" style="--delay: 80ms">
-          <form
-            id="contact-form"
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            class="contact-form"
-          >
+        <div class="contact-right" data-reveal>
+          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
             <input type="hidden" name="form-name" value="contact" />
             <p class="hidden-field"><label>Leave blank: <input name="bot-field" /></label></p>
-
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Name</label>
@@ -236,7 +210,6 @@
                 <input id="email" name="email" type="email" required placeholder="you@company.com" />
               </div>
             </div>
-
             <div class="form-group">
               <label for="division">Area of Interest</label>
               <select id="division" name="division" required>
@@ -248,15 +221,12 @@
                 <option value="general">General inquiry</option>
               </select>
             </div>
-
             <div class="form-group">
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" placeholder="Tell us what you're working on..."></textarea>
             </div>
-
-            <button type="submit" class="form-btn">Send Message</button>
+            <button type="submit" class="btn btn--solid form-btn">Send message</button>
           </form>
-
           <div id="form-success" class="form-success hidden">
             <p class="success-title">Message received.</p>
             <p class="success-sub">We'll be in touch within one business day.</p>
@@ -267,7 +237,7 @@
 
   </main>
 
-  <!-- ── Footer ── -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-left">
@@ -283,6 +253,7 @@
           <a href="https://journal.dfpp.io" target="_blank" rel="noopener" class="footer-nav-link">Journal</a>
           <a href="https://dfppagency.com" target="_blank" rel="noopener" class="footer-nav-link">Agency</a>
           <a href="https://dfppcapital.com" target="_blank" rel="noopener" class="footer-nav-link">Capital</a>
+          <a href="https://collective.dfpp.io" target="_blank" rel="noopener" class="footer-nav-link">Collective</a>
         </nav>
         <a href="mailto:hello@dfpp.io" class="footer-email">hello@dfpp.io</a>
         <p class="footer-legal">&copy; <span id="year"></span> DFPP, LLC. All rights reserved.</p>
