@@ -107,7 +107,8 @@ if (contactForm && formSuccess) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(new FormData(contactForm)).toString(),
     })
-      .then(() => {
+      .then((response) => {
+        if (!response.ok) throw new Error('Form submission rejected');
         contactForm.classList.add('hidden');
         contactForm.style.display = 'none';
         formSuccess.classList.remove('hidden');
