@@ -45,9 +45,9 @@ Netlify's `data-netlify-recaptcha` was 100% platform magic — the actual reCAPT
 2. Populate `RESEND_API_KEY` / `RESEND_FROM_EMAIL` (copy the values from `dfppagency-web`'s Doppler config), `NOTIFICATION_EMAIL`, and `TURNSTILE_SECRET_KEY`.
 3. `bash scripts/sync-secrets-to-worker.sh` — pushes them to the Worker via `wrangler secret bulk`.
 
-## Before cutover — remaining item
+## Turnstile — fully verified
 
-Real Turnstile widget is live (done). Only remaining pre-cutover step: **manually submit the live contact form once through a real browser** to confirm the full end-to-end flow (widget passes → "Message received" → confirmation + operator notification emails). See `VERIFICATION.md`.
+Real widget live and confirmed end-to-end: operator submitted the live contact form through a real browser, the widget passed, and the confirmation email arrived. No remaining pre-cutover Turnstile work.
 
 ## CI/CD (Workers Builds) — connected and confirmed working
 
