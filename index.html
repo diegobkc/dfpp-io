@@ -225,11 +225,7 @@
               <label for="message">Message</label>
               <textarea id="message" name="message" rows="5" placeholder="Tell us what you're working on..."></textarea>
             </div>
-            <!-- TODO before cutover: swap for the real Turnstile site key from the
-                 operator's widget (Cloudflare dashboard -> Turnstile -> Add Site).
-                 This is Cloudflare's published "always passes" TEST key — safe to
-                 commit (it's not a secret), but must never reach production. -->
-            <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA"></div>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAEiUFZkjq8Okehej"></div>
             <button type="submit" class="btn btn--solid form-btn">Send message</button>
           </form>
           <div id="form-success" class="form-success hidden">
