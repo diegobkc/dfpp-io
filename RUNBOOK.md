@@ -52,14 +52,11 @@ Netlify's `data-netlify-recaptcha` was 100% platform magic — the actual reCAPT
 4. `npm run deploy`.
 5. Manually submit the live contact form once (a real browser, solving the actual widget) to confirm the real key pair works before DNS cutover.
 
-## CI/CD (Workers Builds) — one-time operator setup
+## CI/CD (Workers Builds) — connected and confirmed working
 
-Unlike the main site, **this repo has no build step involving a headless browser** — Workers Builds should work cleanly here.
+Unlike the main site, this repo has no build step involving a headless browser — **Workers Builds works cleanly here**, confirmed end to end: connected, root directory `/` (empty/blank in the dashboard field since `package.json` lives at repo root, not a subdirectory), build `npm ci && npm run build`, deploy `npx wrangler deploy`. First push to `main` after connecting produced a clean `stopped/success` build in ~25 seconds. No build-time public vars needed.
 
-1. Cloudflare dashboard → Workers & Pages → `dfpp-io` → Settings → Builds → **Connect** (GitHub OAuth).
-2. Production branch: `main`. Root directory: `/` (repo root — `package.json` lives there).
-3. Build command: `npm ci && npm run build`. Deploy command: `npx wrangler deploy`.
-4. No build-time public vars needed.
+Going forward: **push to `main` and Workers Builds deploys automatically.** Manual `npm run deploy` remains available as a fallback but isn't the standard path here (unlike the main site, where it is).
 
 ## Manual deploy fallback
 
