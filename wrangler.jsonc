@@ -1,0 +1,22 @@
+{
+  // Cloudflare Workers config — dfpp.io (static brand hub + form ingestion).
+  // No build tooling on this site (see CLAUDE.md) — scripts/build.mjs just
+  // copies index.html/src/public/_headers into dist/ so the deploy directory
+  // never accidentally includes repo internals (.git, .claude, docs/, etc.).
+  // Secrets NEVER go in this file — runtime secrets arrive via scripts/sync-secrets-to-worker.sh.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dfpp-io",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "r2_buckets": [
+    { "binding": "SUBMISSIONS", "bucket_name": "dfpp-io-submissions" }
+  ]
+}

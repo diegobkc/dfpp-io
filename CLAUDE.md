@@ -8,7 +8,7 @@ Read this file first in every session before any work on this project.
 **Type:** Static brand hub website
 **Purpose:** Parent brand entry point for the entire DFPP ecosystem. Routes visitors to the right division (Agency, Capital, Collective). Not a product page — a brand identity page.
 **Domain:** dfpp.io (purchased April 2026)
-**Hosting:** Netlify free tier (GitHub → auto-deploy)
+**Hosting:** Cloudflare Workers (migrated off Netlify — see `dfpp-infra-migration/migrations/dfpp-agency/slot-02-dfpp-io/`; deploy via `RUNBOOK.md` in this repo)
 **Status:** Planning → Build
 
 ## DFPP Domain Ecosystem
@@ -28,9 +28,9 @@ dfpp.io                       ← THIS PROJECT (parent hub)
 | Markup | HTML5 |
 | Styling | CSS3 (no framework — keep it lean) |
 | JS | Vanilla JS only (minimal — animations, mobile menu) |
-| Hosting | Netlify (free static hosting) |
-| Deploy | Push to main → auto-deploy via Netlify GitHub integration |
-| DNS | Point dfpp.io A record → Netlify IP |
+| Hosting | Cloudflare Workers (static assets + a small form-ingestion Worker) |
+| Deploy | Push to main → Workers Builds (or `npm run deploy` manually) |
+| DNS | dfpp.io added as a Workers Custom Domain |
 
 **No build step. No npm. No framework.** This is intentional — a brand hub should deploy in seconds and load instantly. If animations warrant it, a single CDN-linked library (e.g., AOS.js for scroll animations) is acceptable.
 
@@ -89,14 +89,9 @@ dfpp-io/
 - Fast load — target < 1s on mobile
 - Dark theme throughout
 
-## Netlify Setup
+## Cloudflare Setup
 
-1. Create Netlify account (free)
-2. Connect GitHub repo: `dfpp-io`
-3. Build settings: No build command, publish directory = `/` (root)
-4. Add custom domain: dfpp.io
-5. Enable Netlify DNS or update registrar A record to Netlify IP
-6. Enable HTTPS (Netlify auto-provisions Let's Encrypt cert)
+See `RUNBOOK.md` in this repo for the full deploy/secrets/Turnstile playbook. Summary: `npm run deploy` (wrangler), Custom Domain added in Workers & Pages settings, HTTPS auto-provisioned by Cloudflare.
 
 ## netlify.toml (starter)
 
@@ -135,9 +130,9 @@ dfpp-io/
 - [ ] index.html built and tested
 - [ ] Mobile responsive (test at 375px, 390px, 414px)
 - [ ] All division card links point to correct domains
-- [ ] Deployed to Netlify
+- [x] Deployed to Cloudflare Workers
 - [ ] dfpp.io DNS configured and resolving
-- [ ] HTTPS active (auto via Netlify)
+- [x] HTTPS active (auto via Cloudflare)
 - [ ] Open Graph meta tags set (title, description, og-image)
 - [ ] hello@dfpp.io email active
 
