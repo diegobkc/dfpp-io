@@ -25,7 +25,8 @@ Netlify's `data-netlify-recaptcha` was 100% platform magic — the actual reCAPT
 - `index.html`'s contact form has a real `<div class="cf-turnstile" data-sitekey="...">` and loads `https://challenges.cloudflare.com/turnstile/v0/api.js`. The widget auto-populates a `cf-turnstile-response` field that rides along in the existing `FormData` — no change needed to `src/main.js`'s submit handler.
 - `worker/turnstile.js` verifies that token against `https://challenges.cloudflare.com/turnstile/v0/siteverify` using `TURNSTILE_SECRET_KEY`.
 - `worker/forms.js` checks the honeypot (`bot-field`) **first** — cheap, fails fast for bots without spending a Turnstile API call — then Turnstile. Missing/invalid token → 400.
-- **Currently deployed with Cloudflare's official "always passes" TEST key pair** (site key `1x00000000000000000000AA`, secret `1x0000000000000000000000000000000AA` — note: the correct secret has 33 zeros between `1x` and `AA`; an earlier attempt with 30 zeros failed with `invalid-input-secret`). **Must be swapped for a real widget's keys before cutover** — see "Before cutover" below.
+- **Real widget deployed** (site key `0x4AAAAAAEiUFZkjq8Okehej`, allowed hostnames `dfpp.io` and the `*.workers.dev` preview domain for pre-cutover testing — remove the preview hostname from the widget's allowed domains after cutover if you want to tighten it back down). Widget mode: Managed. Baseline suite confirmed 8/8 passing with the real widget (including page hydration with no uncaught Turnstile errors, once the preview hostname was added to the widget's allowed domains). Manual end-to-end confirmation (real browser submission → "Message received" → both emails) pending operator check — see `VERIFICATION.md`.
+- Earlier testing used Cloudflare's official "always passes" TEST key pair (site key `1x00000000000000000000AA`, secret `1x0000000000000000000000000000000AA` — 33 zeros, not 30; an earlier attempt with 30 zeros failed with `invalid-input-secret`) — no longer in use, kept here for reference if another site in the batch wants to use the same testing approach before its own real widget exists.
 
 ### Form ingestion (replaces Netlify Forms)
 
@@ -44,13 +45,9 @@ Netlify's `data-netlify-recaptcha` was 100% platform magic — the actual reCAPT
 2. Populate `RESEND_API_KEY` / `RESEND_FROM_EMAIL` (copy the values from `dfppagency-web`'s Doppler config), `NOTIFICATION_EMAIL`, and `TURNSTILE_SECRET_KEY`.
 3. `bash scripts/sync-secrets-to-worker.sh` — pushes them to the Worker via `wrangler secret bulk`.
 
-## Before cutover — swap the Turnstile test key for the real one
+## Before cutover — remaining item
 
-1. Cloudflare dashboard → Turnstile → Add widget → hostname `dfpp.io`. Copy the site key and secret key.
-2. Edit `index.html`: replace `data-sitekey="1x00000000000000000000AA"` with the real site key (remove the TODO comment above it).
-3. `doppler secrets set TURNSTILE_SECRET_KEY "<real secret>" --project dfpp-io --config prd`, then re-run `scripts/sync-secrets-to-worker.sh`.
-4. `npm run deploy`.
-5. Manually submit the live contact form once (a real browser, solving the actual widget) to confirm the real key pair works before DNS cutover.
+Real Turnstile widget is live (done). Only remaining pre-cutover step: **manually submit the live contact form once through a real browser** to confirm the full end-to-end flow (widget passes → "Message received" → confirmation + operator notification emails). See `VERIFICATION.md`.
 
 ## CI/CD (Workers Builds) — connected and confirmed working
 
